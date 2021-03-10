@@ -1,4 +1,4 @@
-# Pilotech
+# Covid Assistant by Pilotech
 
 Miguel Jurado
 Parece que soy el primero en abrir el archivo. Acabo de hacer un git clone <url>.
