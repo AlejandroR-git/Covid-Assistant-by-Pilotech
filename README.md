@@ -6,3 +6,5 @@ A continuación haré git add . para actualizar este documento, comprobaré el e
 
 Alejandro Requena García
 
+Manuel Rubiales Sancho
+
