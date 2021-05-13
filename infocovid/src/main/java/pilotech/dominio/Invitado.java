@@ -33,11 +33,23 @@ public class Invitado {
         return this.admin;
     }
 
+    public void setAdmin(){
+        this.admin = true;
+    }
+
     public boolean isMod(){
         return this.mod;
     }
 
+    public void setMod(){
+        this.mod = true;
+    }
+
     public boolean isRegistered(){
         return this.registrado;
+    }
+
+    public void setRegistered(){
+        this.registrado = true;
     }
 }
