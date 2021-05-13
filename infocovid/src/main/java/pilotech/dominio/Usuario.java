@@ -89,7 +89,7 @@ public class Usuario extends Invitado{
 
     // Comprueba si el usuario ha creado la publicación indicada por su id
     public boolean hasPost(int id){
-        return Arrays.binarySearch(this.idPosts, id) >= 0;
+        return Arrays.binarySearch(this.idPosts, id) > 0;
     }
 
     public void addIDPost(int id){
