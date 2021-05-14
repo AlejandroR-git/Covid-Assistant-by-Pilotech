@@ -1,5 +1,8 @@
 package pilotech.interfaces;
 
+import pilotech.dominio.Noticia;
+import pilotech.dominio.Usuario;
+
 public class Foro implements Display{
 
 
@@ -14,14 +17,14 @@ public class Foro implements Display{
     }
 
     public Noticia getNoticia(int id){
-
-    };
+        return null;
+    }
 
     public void borrarNoticia(int id, Usuario user){
 
-    };
+    }
 
     public Noticia editarNoticia(int id, Usuario user){
-    
-    };
+        return null;
+    }
 }
