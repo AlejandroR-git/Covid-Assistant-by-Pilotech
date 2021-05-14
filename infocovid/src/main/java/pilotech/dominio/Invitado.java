@@ -3,9 +3,9 @@ package pilotech.dominio;
 public class Invitado {
     
     // Variables que utilizamos para comprobar el estado de la cuenta del usuario
-    private boolean registrado;
-    private boolean mod;
-    private boolean admin;
+    protected boolean registrado;
+    protected boolean mod;
+    protected boolean admin;
 
     public Invitado(){
         this.registrado = false;
