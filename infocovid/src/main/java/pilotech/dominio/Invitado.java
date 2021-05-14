@@ -33,16 +33,16 @@ public class Invitado {
         return this.admin;
     }
 
-    public void setAdmin(){
-        this.admin = true;
+    public void setAdmin(boolean info){
+        this.admin = info;
     }
 
     public boolean isMod(){
         return this.mod;
     }
 
-    public void setMod(){
-        this.mod = true;
+    public void setMod(boolean info){
+        this.mod = info;
     }
 
     public boolean isRegistered(){
