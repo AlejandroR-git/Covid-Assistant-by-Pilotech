@@ -74,14 +74,6 @@ public class Usuario extends Invitado{
     public void setFechaReg(Date fechaReg) {
         this.fechaReg = fechaReg;
     }
-    
-    public int getNumPosts() {
-        return numPosts;
-    }
-
-    public void setNumPosts(int numPosts) {
-        this.numPosts = numPosts;
-    }
 
     public List<Integer> getIDPosts(){
         return this.idPosts;
