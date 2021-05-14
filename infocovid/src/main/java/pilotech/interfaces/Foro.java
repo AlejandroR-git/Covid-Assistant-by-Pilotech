@@ -1,7 +1,15 @@
 package pilotech.interfaces;
 
-public class Foro extends Display{
+public class Foro implements Display{
 
 
+    @Override
+    public void display() {
 
+    }
+
+    @Override
+    public void abrir(int id) {
+
+    }
 }

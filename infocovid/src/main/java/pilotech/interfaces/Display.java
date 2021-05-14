@@ -1,11 +1,6 @@
 package pilotech.interfaces;
 
-public class Display{
-
-    public Display(){};
-
-    public display(){};
-
-    public abrir(int id){};
-
+public interface Display{
+    void display();
+    void abrir(int id);
 }
