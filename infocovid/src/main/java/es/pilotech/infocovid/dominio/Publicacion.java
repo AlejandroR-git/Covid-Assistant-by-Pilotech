@@ -1,14 +1,29 @@
 package es.pilotech.infocovid.dominio;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Publicacion{
+
+	@Id
+    @GeneratedValue
 	private int id;
 	private String titulo;
 	private String cuerpo;
-	private Usuario autor;
+	private String autor;
 	private boolean verificado;
 	private int userID;
 
-	public Publicacion(int id, String titulo, String cuerpo, Usuario autor, boolean verificado, int userID) {
+	@ManyToOne
+	private Publicacion post;
+
+	@ManyToOne
+	private Publicacion userPost;
+
+	public Publicacion(int id, String titulo, String cuerpo, String autor, boolean verificado, int userID) {
 		this.id = id;
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;
@@ -17,10 +32,10 @@ public class Publicacion{
 		this.userID = userID;
 	}
 	
+	/* ¿Cambiar a Foro.java?
 	public void crearPost(Usuario user) {
 		
-	}
-	
+	}*/
 	
 	public int getId() {
 		return id;
@@ -46,11 +61,11 @@ public class Publicacion{
 		this.cuerpo = cuerpo;
 	}
 
-	public Usuario getAutor() {
+	public String getAutor() {
 		return autor;
 	}
 
-	public void setAutor(Usuario autor) {
+	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 

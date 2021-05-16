@@ -3,6 +3,7 @@ package es.pilotech.infocovid.dominio;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Noticia{
@@ -15,6 +16,9 @@ public class Noticia{
 	private String fuente;
 	private boolean bulo;
 	
+	@ManyToOne
+	private Noticia noticia;
+
 	public Noticia(int id, String cuerpo, String titular, String fuente, boolean bulo) {
 		this.id = id;
 		this.titular = titular;
@@ -22,7 +26,6 @@ public class Noticia{
 		this.fuente = fuente;
 		this.bulo = bulo;
 	}
-	
 	
 	public int getId() {
 		return id;
@@ -47,15 +50,19 @@ public class Noticia{
 	public void setCuerpo(String cuerpo) {
 		this.cuerpo = cuerpo;
 	}
+
 	public String getFuente() {
 		return fuente;
 	}
+
 	public void setFuente(String fuente) {
 		this.fuente = fuente;
 	}
+
 	public boolean isBulo() {
 		return bulo;
 	}
+
 	public void setBulo(boolean bulo) {
 		this.bulo = bulo;
 	}

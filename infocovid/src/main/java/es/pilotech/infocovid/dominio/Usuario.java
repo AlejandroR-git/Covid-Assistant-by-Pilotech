@@ -1,9 +1,12 @@
 package es.pilotech.infocovid.dominio;
 
 import java.sql.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario extends Invitado{
@@ -18,6 +21,9 @@ public class Usuario extends Invitado{
     private String password;
     private String ciudad;
     private Date fechaReg;
+
+    @OneToMany (mappedBy = "userPost")
+    private List<Publicacion> listaPosts;
 
     public Usuario(String nombre, String correo, String password, String ciudad, int id, Date fechaReg){
         super();
@@ -76,6 +82,10 @@ public class Usuario extends Invitado{
 
     public void setFechaReg(Date fechaReg) {
         this.fechaReg = fechaReg;
+    }
+
+    public boolean hasPost(Publicacion post){
+        return listaPosts.contains(post);
     }
 
 }

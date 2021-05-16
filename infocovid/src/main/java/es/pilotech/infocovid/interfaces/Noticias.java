@@ -1,9 +1,11 @@
 package es.pilotech.infocovid.interfaces;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import es.pilotech.infocovid.dominio.Noticia;
 import es.pilotech.infocovid.dominio.Publicacion;
@@ -16,8 +18,8 @@ public class Noticias implements Display{
     @GeneratedValue
     private int id;
     
-    @ManyToOne
-    private Noticia listaNoticias;
+    @OneToMany (mappedBy = "noticia")
+    private List<Noticia> listaNoticias;
 
     @Override
     public void display() {
