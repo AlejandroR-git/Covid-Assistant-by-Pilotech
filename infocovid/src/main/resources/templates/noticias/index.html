@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Info Covid - Noticias</title>
+    </head>
+    <body>
+        <h1>
+            Noticias de Info Covid
+        </h1>
+        <h2>
+            Noticias publicadas por el staff de Info Covid
+        </h2>
+        <table>
+            <thead>
+                <tr><td>Titular</td><td>Cuerpo</td><td>Fuente</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="n : ${listaNoticias}">
+                    <td th:text="${n.titular}"></td>
+                    <td th:text="${n.cuerpo}"></td>
+                    <td th:text="${n.fuente}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

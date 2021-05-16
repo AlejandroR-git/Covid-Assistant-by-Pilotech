@@ -23,19 +23,9 @@ public class Publicacion{
 	@ManyToOne
 	private Publicacion userPost;
 
-	public Publicacion(int id, String titulo, String cuerpo, String autor, boolean verificado, int userID) {
-		this.id = id;
-		this.titulo = titulo;
-		this.cuerpo = cuerpo;
-		this.autor = autor;
-		this.verificado = verificado;
-		this.userID = userID;
+	public Publicacion() {
+
 	}
-	
-	/* ¿Cambiar a Foro.java?
-	public void crearPost(Usuario user) {
-		
-	}*/
 	
 	public int getId() {
 		return id;

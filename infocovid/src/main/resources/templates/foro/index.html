@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Info Covid - Foro</title>
+    </head>
+    <body>
+        <h1>
+            Foro de Info Covid
+        </h1>
+        <h2>
+            Foro para publicar experiencias personales y preguntas sobre el Covid
+        </h2>
+        <table>
+            <thead>
+                <tr><td>Autor</td><td>Título</td><td>Cuerpo</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${listaPosts}">
+                    <td th:text="${p.autor}"></td>
+                    <td th:text="${p.titulo}"></td>
+                    <td th:text="${p.cuerpo}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

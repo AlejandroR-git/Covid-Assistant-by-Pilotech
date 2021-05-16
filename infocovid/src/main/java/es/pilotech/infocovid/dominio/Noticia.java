@@ -19,12 +19,8 @@ public class Noticia{
 	@ManyToOne
 	private Noticia noticia;
 
-	public Noticia(int id, String cuerpo, String titular, String fuente, boolean bulo) {
-		this.id = id;
-		this.titular = titular;
-		this.cuerpo = cuerpo;
-		this.fuente = fuente;
-		this.bulo = bulo;
+	public Noticia() {
+		
 	}
 	
 	public int getId() {
