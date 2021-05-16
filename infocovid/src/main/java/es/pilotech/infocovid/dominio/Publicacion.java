@@ -10,7 +10,7 @@ public class Publicacion{
 
 	@Id
     @GeneratedValue
-	private int id;
+	private Integer id;
 	private String titulo;
 	private String cuerpo;
 	private String autor;

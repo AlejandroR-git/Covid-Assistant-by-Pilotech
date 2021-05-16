@@ -10,7 +10,7 @@ public class Noticia{
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	private String titular;
 	private String cuerpo;
 	private String fuente;

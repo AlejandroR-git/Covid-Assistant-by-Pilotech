@@ -16,7 +16,7 @@ public class Foro implements Display{
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @OneToMany (mappedBy = "post")
     private List<Publicacion> listaPosts;

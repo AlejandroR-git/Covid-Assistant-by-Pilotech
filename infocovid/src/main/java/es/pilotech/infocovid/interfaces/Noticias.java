@@ -16,7 +16,7 @@ public class Noticias implements Display{
     
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     
     @OneToMany (mappedBy = "noticia")
     private List<Noticia> listaNoticias;

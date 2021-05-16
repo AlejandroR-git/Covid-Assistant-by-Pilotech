@@ -14,7 +14,7 @@ public class Usuario extends Invitado{
     // Variables que guardan información sobre la cuenta del usuario
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     
     private String nombre;
     private String correo;
