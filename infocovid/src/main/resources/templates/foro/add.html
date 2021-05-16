@@ -5,11 +5,37 @@
         <title>Info Covid - Foro</title>
     </head>
     <body>
-        <h1>
-            Añadir nueva Publicación
-        </h1>
-        <h2>
-            Panel para añadir una nueva publicación
-        </h2>
+        <div th:switch="${post.id}">
+            <h1 th:case="null">
+                Crear una Publicación
+                <h2>
+                    Panel para crear una nueva publicación
+                </h2>
+            </h1>
+            <h1 th:case="*">
+                Editar una Publicación
+                <h2>
+                    Panel para editar una publicación
+                </h2>
+            </h1>
+        </div>
+        <form th:action="@{/foro/save}" method="post" th:object="${post}">
+            <input type="hidden" id="id" th:field="*{id}">
+            <div>
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" size="10"  th:field="*{autor}">
+            </div>
+            <div>
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" size="50" th:field="*{titulo}">
+            </div>
+            <div>
+                <label for="cuerpo">Cuerpo</label>
+                <textarea rows="5" cols="51" id="cuerpo" th:field="*{cuerpo}"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
     </body>
 </html>

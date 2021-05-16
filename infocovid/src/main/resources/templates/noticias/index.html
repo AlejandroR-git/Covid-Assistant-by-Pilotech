@@ -11,18 +11,25 @@
         <h2>
             Noticias publicadas por el staff de Info Covid
         </h2>
+        <a th:href="@{/noticias/add}">Crear Noticia</a>
         <table>
             <thead>
-                <tr><td>Titular</td><td>Cuerpo</td><td>Fuente</td>
+                <tr><td>Titular</td><td>Cuerpo</td><td>Fuente</td><td></td>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="n : ${listaNoticias}">
                     <td th:text="${n.titular}"></td>
                     <td th:text="${n.cuerpo}"></td>
-                    <td th:text="${n.fuente}"></td>
+                    <td><a th:href="@{${n.link}}"><t th:text="${n.fuente}"></t></a></td>
+                    <td>
+                        <a th:href="@{/noticias/view/{id}(id=${n.id})}">Abrir</a>
+                        <a th:href="@{/noticias/edit/{id}(id=${n.id})}">Editar</a>
+                        <a th:href="@{/noticias/delete/{id}(id=${n.id})}">Eliminar</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <br><a href="/">Volver atrás</a>
     </body>
 </html>

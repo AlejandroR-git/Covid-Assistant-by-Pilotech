@@ -53,3 +53,11 @@ drop table NOTICIA [90107-200]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+2021-05-16 19:59:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DELETE *[*] FROM NOTICIA"; se esperaba "identifier"
+Syntax error in SQL statement "DELETE *[*] FROM NOTICIA"; expected "identifier"; SQL statement:
+DELETE * FROM NOTICIA [42001-200]
+2021-05-16 20:09:44 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "NOTICIA_ID[*]"
+Syntax error in SQL statement "NOTICIA_ID[*]"; SQL statement:
+NOTICIA_ID [42000-200]

@@ -5,11 +5,45 @@
         <title>Info Covid - Noticias</title>
     </head>
     <body>
+        <div th:switch="${noticia.id}">
+            <h1 th:case="null">
+                Crear nueva Noticia
+                <h2>
+                    Panel para añadir una nueva noticia
+                </h2>
+            </h1>
+            <h1 th:case="*">
+                Editar una Noticia
+                <h2>
+                    Panel para editar una noticia
+                </h2>
+            </h1>
+        </div>
         <h1>
-            Añadir nueva Noticia
+            
         </h1>
-        <h2>
-            Panel para añadir una nueva noticia
-        </h2>
+        
+        <form th:action="@{/noticias/save}" method="post" th:object="${noticia}">
+            <input type="hidden" id="id" th:field="*{id}">
+            <div>
+                <label for="titular">Titular</label>
+                <input type="text" id="titular" size="50"  th:field="*{titular}">
+            </div>
+            <div>
+                <label for="cuerpo">Cuerpo</label>
+                <textarea rows="5" cols="51" id="cuerpo" th:field="*{cuerpo}"></textarea>
+            </div>
+            <div>
+                <label for="fuente">Nombre de Fuente</label>
+                <input type="text" id="fuente" size="20" th:field="*{fuente}">
+            </div>
+            <div>
+                <label for="link">Link de Fuente</label>
+                <input type="text" id="link" size="50" th:field="*{link}">
+            </div>
+            <div>
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
     </body>
 </html>

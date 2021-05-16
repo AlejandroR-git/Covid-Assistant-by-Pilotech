@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Info Covid - Noticias</title>
+    </head>
+    <body>
+        <h1 th:text="${noticia}"></h1>
+            <div>
+                <label for="cuerpo">Cuerpo: </label>
+                <span th:text="${noticia.cuerpo}"></span>
+            </div>
+            <div>
+                <label for="fuente">Fuente: </label>
+                <a th:href="${noticia.link}"><span th:text="${noticia.fuente}"></span></a>
+            </div>
+        <a th:href="@{/noticias}">Volver a Noticias</a>
+    </body>
+</html>

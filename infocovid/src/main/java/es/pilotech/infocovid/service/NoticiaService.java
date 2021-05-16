@@ -17,4 +17,15 @@ public class NoticiaService {
         return noticiaRepository.findAll();
     }
 
+    public void save(Noticia n){
+        noticiaRepository.saveAndFlush(n);
+    }
+
+    public void delete(Integer id){
+        noticiaRepository.deleteById(id);
+    }
+
+    public Noticia getByID(Integer id){
+        return noticiaRepository.getOne(id);
+    }
 }

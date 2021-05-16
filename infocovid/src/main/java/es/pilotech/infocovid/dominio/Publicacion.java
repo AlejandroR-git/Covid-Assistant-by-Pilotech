@@ -11,9 +11,9 @@ public class Publicacion{
 	@Id
     @GeneratedValue
 	private Integer id;
+	private String autor;
 	private String titulo;
 	private String cuerpo;
-	private String autor;
 	private boolean verificado;
 	private int userID;
 
@@ -27,11 +27,11 @@ public class Publicacion{
 
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -74,5 +74,9 @@ public class Publicacion{
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}   
+
+	public String toString(){
+		return this.titulo;
+	}
     
 }

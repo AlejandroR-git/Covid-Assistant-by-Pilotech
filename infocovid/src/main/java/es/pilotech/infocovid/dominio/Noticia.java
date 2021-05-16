@@ -14,6 +14,8 @@ public class Noticia{
 	private String titular;
 	private String cuerpo;
 	private String fuente;
+	private String link;
+
 	private boolean bulo;
 	
 	@ManyToOne
@@ -23,11 +25,11 @@ public class Noticia{
 		
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -55,12 +57,24 @@ public class Noticia{
 		this.fuente = fuente;
 	}
 
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
 	public boolean isBulo() {
 		return bulo;
 	}
 
 	public void setBulo(boolean bulo) {
 		this.bulo = bulo;
+	}
+
+	public String toString(){
+		return this.titular;
 	}
 	
 	
