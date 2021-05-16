@@ -1,8 +1,7 @@
-package pilotech.interfaces;
+package es.pilotech.infocovid.interfaces;
 
-
-import pilotech.dominio.Publicacion;
-import pilotech.dominio.Usuario;
+import es.pilotech.infocovid.dominio.Publicacion;
+import es.pilotech.infocovid.dominio.Usuario;
 
 public class Noticias implements Display{
     

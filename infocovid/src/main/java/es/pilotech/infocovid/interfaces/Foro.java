@@ -1,7 +1,7 @@
-package pilotech.interfaces;
+package es.pilotech.infocovid.interfaces;
 
-import pilotech.dominio.Noticia;
-import pilotech.dominio.Usuario;
+import es.pilotech.infocovid.dominio.Noticia;
+import es.pilotech.infocovid.dominio.Usuario;
 
 public class Foro implements Display{
 

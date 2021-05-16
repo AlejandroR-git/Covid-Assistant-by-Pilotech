@@ -1,7 +1,6 @@
 package pilotech.dominio;
 
 import java.sql.Date;
-import java.util.Arrays;
 import java.util.*;
 
 public class Usuario extends Invitado{
