@@ -1,4 +1,4 @@
-package pilotech.interfaces;
+package es.pilotech.infocovid.interfaces;
 
 public interface Display{
     void display();

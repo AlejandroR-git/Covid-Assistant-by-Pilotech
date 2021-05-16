@@ -1,18 +1,23 @@
-package pilotech.dominio;
+package es.pilotech.infocovid.dominio;
 
 import java.sql.Date;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Usuario extends Invitado{
     
     // Variables que guardan información sobre la cuenta del usuario
+    @Id
+    @GeneratedValue
+    private int id;
+    
     private String nombre;
     private String correo;
     private String password;
     private String ciudad;
-    private int id;
     private Date fechaReg;
-    private List<Integer> idPosts;
 
     public Usuario(String nombre, String correo, String password, String ciudad, int id, Date fechaReg){
         super();
@@ -23,7 +28,6 @@ public class Usuario extends Invitado{
         this.ciudad = ciudad;
         this.id = id;
         this.fechaReg = fechaReg;
-        this.idPosts = new ArrayList<Integer>();
     }
     
     public String getNombre() {
@@ -72,25 +76,6 @@ public class Usuario extends Invitado{
 
     public void setFechaReg(Date fechaReg) {
         this.fechaReg = fechaReg;
-    }
-
-    public List<Integer> getIDPosts(){
-        return this.idPosts;
-    }
-
-    // Comprueba si el usuario ha creado la publicación indicada por su id
-    public boolean hasPost(int id){
-        return this.idPosts.contains(id);
-    }
-
-    // Añade la id de un post a la lista de publicaciones del usuario
-    public void addIDPost(int id){
-        idPosts.add(id);
-    }
-
-    // Borra la id de un post a la lista de publicaciones del usuario
-    public void removeIDPost(int id){
-        idPosts.remove(idPosts.indexOf(id));
     }
 
 }

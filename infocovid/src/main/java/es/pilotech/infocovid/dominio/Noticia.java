@@ -1,4 +1,4 @@
-package pilotech.dominio;
+package es.pilotech.infocovid.dominio;
 
 public class Noticia{
 
