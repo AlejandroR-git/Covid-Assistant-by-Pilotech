@@ -6,13 +6,13 @@
     </head>
     <body>
         <h1>
-            Foro de Info Covid
+            Panel de Moderación del Foro
         </h1>
         <h2>
-            Foro para publicar experiencias personales y preguntas sobre el Covid
+            Panel para verificar publicaciones del foro de Info Covid
         </h2>
-        <a th:href="@{/foro/add}">Crear Publicación</a>
-        <table>
+        <div th:switch="${notVerif}">
+        <table th:case="${true}">
             <thead>
                 <tr><td>Autor</td><td>Título</td><td>Cuerpo</td>
                 </tr>
@@ -20,21 +20,22 @@
             <tbody>
                 <tr th:each="p : ${listaPosts}">
                     <div th:switch="${p.verificado}">
-                    <t th:case="true">
+                    <t th:case="false">
                         <td th:text="${p.autor}"></td>
                         <td th:text="${p.titulo}"></td>
                         <td th:text="${p.cuerpo}"></td>
                     <td>
-                        <a th:href="@{/foro/view/{id}(id=${p.id})}">Abrir</a>
-                        <a th:href="@{/foro/edit/{id}(id=${p.id})}">Editar</a>
-                        <a th:href="@{/foro/delete/{id}(id=${p.id})}">Eliminar</a>
+                        <a th:href="@{/foro/verif/view/{id}(id=${p.id})}">Abrir</a>
                     </td>
                     </t>
                     </div>
                 </tr>
             </tbody>
         </table>
-        <br><a th:href="@{/foro/verif}">Vista de Moderador</a>
-        <br><a href="/">Volver atrás</a>
+        <h3 th:case="${false}">
+            No hay publicaciones para verificar.
+        </h3>
+    </div>
+        <br><a th:href="@{/foro}">Volver atrás</a>
     </body>
 </html>

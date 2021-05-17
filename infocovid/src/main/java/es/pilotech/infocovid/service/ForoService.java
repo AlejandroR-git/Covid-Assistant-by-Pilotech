@@ -28,4 +28,5 @@ public class ForoService {
     public Publicacion getByID(Integer id){
         return foroRepository.getOne(id);
     }
+    
 }

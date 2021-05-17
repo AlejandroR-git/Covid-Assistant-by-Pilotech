@@ -37,8 +37,8 @@ public class ForoController {
     }
 
     @PostMapping("/foro/save")
-    public String saveNoticia(Publicacion post){
-        
+    public String savePost(Publicacion post){
+    
         foroService.save(post);
         return "redirect:/foro";
     }
@@ -55,9 +55,39 @@ public class ForoController {
         return "foro/view";
     }
 
-    @RequestMapping("/foro/verif/{id}")
-    public String verifPost(){
-        return "foro/verif";
+    @RequestMapping("/foro/verif")
+    public String viewVerifPanel(Model model){
+
+        boolean notVerif = false;
+        int cont = 0;
+        List<Publicacion> publicaciones = foroService.getAll();
+        
+        while(cont<publicaciones.size() && !notVerif){
+            if(!publicaciones.get(cont).isVerificado())
+                notVerif = true;
+            cont++;
+        }
+        model.addAttribute("listaPosts", publicaciones);
+        model.addAttribute("notVerif", notVerif);
+
+        return "foro/verif/index";
+    }
+
+    @RequestMapping("/foro/verif/view/{id}")
+    public String viewVerifPost(@PathVariable("id") Integer id, Model model){
+        
+        model.addAttribute("post", foroService.getByID(id));
+        
+        return "foro/verif/view";
+    }
+
+    @RequestMapping("/foro/verif/save/{id}")
+    public String saveVerifPost(@PathVariable("id") Integer id){
+    
+        Publicacion post = foroService.getByID(id);
+        post.setVerificado(true);
+        foroService.save(post);
+        return "redirect:/foro";
     }
 
     @RequestMapping("/foro/delete/{id}")

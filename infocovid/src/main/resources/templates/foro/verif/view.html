@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Info Covid - Foro</title>
+    </head>
+    <body>
+        <h1 th:text="${post}"></h1>
+            <div>
+                <label for="autor">Autor: </label>
+                <span th:text="${post.autor}"></span>
+            </div>
+            <div>
+                <label for="cuerpo">Cuerpo: </label>
+                <span th:text="${post.cuerpo}"></span>
+            </div>
+        <br><a th:href="@{/foro/verif/save/{id}(id=${post.id})}">Verificar Publicación</a>
+        <br><a th:href="@{/foro/delete/{id}(id=${post.id})}">Eliminar Publicación</a>
+        <br><a th:href="@{/foro}">Volver al Foro</a>
+    </body>
+</html>
