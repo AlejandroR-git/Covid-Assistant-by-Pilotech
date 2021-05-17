@@ -7,12 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import es.pilotech.infocovid.dominio.Noticia;
 import es.pilotech.infocovid.dominio.Publicacion;
-import es.pilotech.infocovid.dominio.Usuario;
 
 @Entity
-public class Foro implements Display{
+public class Foro {
 
     @Id
     @GeneratedValue
@@ -21,25 +19,4 @@ public class Foro implements Display{
     @OneToMany (mappedBy = "post")
     private List<Publicacion> listaPosts;
 
-    @Override
-    public void display() {
-
-    }
-
-    @Override
-    public void abrir(int id) {
-
-    }
-
-    public Noticia getNoticia(int id){
-        return null;
-    }
-
-    public void borrarNoticia(int id, Usuario user){
-
-    }
-
-    public Noticia editarNoticia(int id, Usuario user){
-        return null;
-    }
 }
