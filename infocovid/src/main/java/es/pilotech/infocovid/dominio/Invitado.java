@@ -13,22 +13,6 @@ public class Invitado {
         this.admin = false;
     }
 
-    public void abrirNoticias(){
-        // TODO Función que abre la pestaña de noticias
-    }
-
-    public void abrirNoticia(int idPost){
-        // TODO Función que abre una noticia de la lista de noticias
-    }
-
-    public void abrirForo(){
-        // TODO Función que abre la pestaña del foro
-    }
-
-    public void abrirPost(int idPost){
-        // TODO Función que abre una publicación del foro
-    }
-
     public boolean isAdmin(){
         return this.admin;
     }
