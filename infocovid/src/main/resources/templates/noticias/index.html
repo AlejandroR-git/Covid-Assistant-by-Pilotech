@@ -22,7 +22,7 @@
                 <tr th:each="n : ${listaNoticias}">
                     <td th:text="${n.titular}"></td>
                     <td th:text="${n.cuerpo}"></td>
-                    <td><a th:href="@{${n.link}}"><t th:text="${n.fuente}"></t></a></td>
+                    <td><a th:target="_blank" th:href="@{${n.link}}"><t th:text="${n.fuente}"></t></a></td>
                     <td>
                         <a th:href="@{/noticias/view/{id}(id=${n.id},type=${tipo})}">Abrir</a>
                         <div th:if="${tipo>2}">
