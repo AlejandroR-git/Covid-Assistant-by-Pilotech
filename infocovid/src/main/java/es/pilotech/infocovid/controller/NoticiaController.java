@@ -19,11 +19,12 @@ public class NoticiaController {
     NoticiaService noticiaService;
 
     @RequestMapping("/noticias")
-    public String listaNoticias(Model model){
+    public String listaNoticias(Model model, Integer type){
 
         List<Noticia> noticias = noticiaService.getAll();
 
         model.addAttribute("listaNoticias", noticias);
+        model.addAttribute("tipo", type);
 
         return "noticias/index";
     }
@@ -40,18 +41,20 @@ public class NoticiaController {
     public String saveNoticia(Noticia noticia){
         
         noticiaService.save(noticia);
-        return "redirect:/noticias";
+        return "redirect:/noticias?type=3";
     }
 
     @RequestMapping("/noticias/edit/{id}")
     public String editNoticia(@PathVariable("id") Integer id, Model model){
         model.addAttribute("noticia", noticiaService.getByID(id));
+
         return "noticias/add";
     }
 
     @RequestMapping("/noticias/view/{id}")
-    public String viewNoticia(@PathVariable("id") Integer id, Model model){
+    public String viewNoticia(@PathVariable("id") Integer id, Integer type, Model model){
         model.addAttribute("noticia", noticiaService.getByID(id));
+        model.addAttribute("tipo", type);
         return "noticias/view";
     }
 
@@ -59,6 +62,6 @@ public class NoticiaController {
     public String deleteNoticia(@PathVariable("id") Integer id){
 
         noticiaService.delete(id);
-        return "redirect:/noticias";
+        return "redirect:/noticias?type=3";
     }
 }

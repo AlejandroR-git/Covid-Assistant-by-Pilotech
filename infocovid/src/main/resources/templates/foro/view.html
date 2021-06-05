@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Foro</title>
+        <link rel="shortcut icon" href="assets/logo.png" type="image/png">
     </head>
     <body>
         <h1 th:text="${post}"></h1>
@@ -14,6 +15,6 @@
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${post.cuerpo}"></span>
             </div>
-        <a th:href="@{/foro}">Volver al Foro</a>
+        <a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>
     </body>
 </html>

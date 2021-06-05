@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Noticias</title>
+        <link rel="shortcut icon" href="assets/logo.png" type="image/png">
     </head>
     <body>
         <h1 th:text="${noticia}"></h1>
@@ -14,6 +15,6 @@
                 <label for="fuente">Fuente: </label>
                 <a th:href="${noticia.link}"><span th:text="${noticia.fuente}"></span></a>
             </div>
-        <a th:href="@{/noticias}">Volver a Noticias</a>
+        <a th:href="@{/noticias(type=${tipo})}">Volver a Noticias</a>
     </body>
 </html>

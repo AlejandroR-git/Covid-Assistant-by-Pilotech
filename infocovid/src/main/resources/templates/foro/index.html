@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Foro</title>
+        <link rel="shortcut icon" href="assets/logo.png" type="image/png">
     </head>
     <body>
         <h1>
@@ -11,7 +12,7 @@
         <h2>
             Foro para publicar experiencias personales y preguntas sobre el Covid
         </h2>
-        <a th:href="@{/foro/add}">Crear Publicación</a>
+        <a th:href="@{/foro/add(type=${tipo})}">Crear Publicación</a>
         <table>
             <thead>
                 <tr><td>Autor</td><td>Título</td><td>Cuerpo</td>
@@ -25,16 +26,17 @@
                         <td th:text="${p.titulo}"></td>
                         <td th:text="${p.cuerpo}"></td>
                     <td>
-                        <a th:href="@{/foro/view/{id}(id=${p.id})}">Abrir</a>
-                        <a th:href="@{/foro/edit/{id}(id=${p.id})}">Editar</a>
-                        <a th:href="@{/foro/delete/{id}(id=${p.id})}">Eliminar</a>
+                        <a th:href="@{/foro/view/{id}(id=${p.id}, type=${tipo})}">Abrir</a>
+                        <a th:href="@{/foro/edit/{id}(id=${p.id}, type=${tipo})}">Editar</a>
+                        <a th:href="@{/foro/delete/{id}(id=${p.id}, type=${tipo})}">Eliminar</a>
+                        </div>
                     </td>
                     </t>
                     </div>
                 </tr>
             </tbody>
         </table>
-        <br><a th:href="@{/foro/verif}">Vista de Moderador</a>
-        <br><a href="/">Volver atrás</a>
+        <br th:if="${tipo}>1"><a th:if="${tipo}>1" th:href="@{/foro/verif(type=${tipo})}">Vista de Moderador</a>
+        <br><a th:href="@{inicio(type=${tipo})}">Volver atrás</a>
     </body>
 </html>

@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Noticias</title>
+        <link rel="shortcut icon" href="assets/logo.png" type="image/png">
     </head>
     <body>
         <h1>
@@ -11,7 +12,7 @@
         <h2>
             Noticias publicadas por el staff de Info Covid
         </h2>
-        <a th:href="@{/noticias/add}">Crear Noticia</a>
+        <a th:if="${tipo>2}" th:href="@{/noticias/add}">Crear Noticia</a>
         <table>
             <thead>
                 <tr><td>Titular</td><td>Cuerpo</td><td>Fuente</td><td></td>
@@ -23,13 +24,15 @@
                     <td th:text="${n.cuerpo}"></td>
                     <td><a th:href="@{${n.link}}"><t th:text="${n.fuente}"></t></a></td>
                     <td>
-                        <a th:href="@{/noticias/view/{id}(id=${n.id})}">Abrir</a>
+                        <a th:href="@{/noticias/view/{id}(id=${n.id},type=${tipo})}">Abrir</a>
+                        <div th:if="${tipo>2}">
                         <a th:href="@{/noticias/edit/{id}(id=${n.id})}">Editar</a>
                         <a th:href="@{/noticias/delete/{id}(id=${n.id})}">Eliminar</a>
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <br><a href="/">Volver atrás</a>
+        <br><a th:href="@{inicio(type=${tipo})}">Volver atrás</a>
     </body>
 </html>

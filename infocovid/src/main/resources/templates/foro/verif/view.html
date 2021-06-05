@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Foro</title>
+        <link rel="shortcut icon" href="assets/logo.png" type="image/png">
     </head>
     <body>
         <h1 th:text="${post}"></h1>
@@ -14,8 +15,8 @@
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${post.cuerpo}"></span>
             </div>
-        <br><a th:href="@{/foro/verif/save/{id}(id=${post.id})}">Verificar Publicación</a>
-        <br><a th:href="@{/foro/delete/{id}(id=${post.id})}">Eliminar Publicación</a>
-        <br><a th:href="@{/foro}">Volver al Foro</a>
+        <br><a th:href="@{/foro/verif/save/{id}(id=${post.id}, type=${tipo})}">Verificar Publicación</a>
+        <br><a th:href="@{/foro/delete/{id}(id=${post.id}, type=${tipo})}">Eliminar Publicación</a>
+        <br><a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>
     </body>
 </html>
