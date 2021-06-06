@@ -1,4 +1,4 @@
-package es.pilotech.infocovid.dominio;
+package es.pilotech.infocovid.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,10 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-class NoticiaTest {
-	
-	Noticia noticia;
+class ForoControllerTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -27,29 +24,11 @@ class NoticiaTest {
 
 	@AfterEach
 	void tearDown() throws Exception {
-		
 	}
 
 	@Test
 	void test() {
 		fail("Not yet implemented");
-	}
-	
-	@BeforeEach
-	public void init() {
-		noticia = new Noticia();
-	}
-	
-	@AfterEach
-	public void terminate() {
-		noticia = null;
-	}
-	
-	@Test
-	void establecerID() {
-		int id = 1;
-		noticia.setId(id);
-		assertEquals(id,noticia.getId());
 	}
 
 }
