@@ -40,6 +40,10 @@
                 <input type="text" id="link" size="50" th:field="*{link}">
             </div>
             <div>
+                <label for="bulo">Tipo de Noticia</label>
+                <input type="checkbox" name="tipo" th:field="*{bulo}" th:value="${noticia.bulo}">Bulo
+            </div>
+            <div>
                 <input type="submit" value="Enviar">
             </div>
         </form>

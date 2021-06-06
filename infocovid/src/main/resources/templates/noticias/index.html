@@ -4,6 +4,10 @@
         <meta charset="ISO-8859-1">
         <title>Info Covid - Noticias</title>
         <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
+        <style typo="text/css">
+            .bulo { color:brown}
+            .noticia { color:#326d52}
+        </style>
     </head>
     <body>
         <h1>
@@ -12,6 +16,7 @@
         <h2>
             Noticias publicadas por el staff de Info Covid
         </h2>
+        <h3><div class="noticia">Las noticias son de color verde.</div><div class="bulo">Los bulos son de color rojo.</div></h3>
         <a th:if="${tipo>2}" th:href="@{/noticias/add}">Crear Noticia</a>
         <table>
             <thead>
@@ -19,17 +24,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="n : ${listaNoticias}">
+                <tr th:each="n : ${listaNoticias}" class="bulo" th:classappend="${n.bulo} ? bulo : noticia">
                     <td th:text="${n.titular}"></td>
                     <td th:text="${n.cuerpo}"></td>
                     <td><a th:target="_blank" th:href="@{${n.link}}"><t th:text="${n.fuente}"></t></a></td>
                     <td>
                         <a th:href="@{/noticias/view/{id}(id=${n.id},type=${tipo})}">Abrir</a>
-                        <div th:if="${tipo>2}">
-                        <a th:href="@{/noticias/edit/{id}(id=${n.id})}">Editar</a>
-                        <a th:href="@{/noticias/delete/{id}(id=${n.id})}">Eliminar</a>
-                        </div>
+                        <a th:if="${tipo>2}" th:href="@{/noticias/edit/{id}(id=${n.id})}">Editar</a>
+                        <a th:if="${tipo>2}" th:href="@{/noticias/delete/{id}(id=${n.id})}">Eliminar</a>
                     </td>
+                </div>
                 </tr>
             </tbody>
         </table>
