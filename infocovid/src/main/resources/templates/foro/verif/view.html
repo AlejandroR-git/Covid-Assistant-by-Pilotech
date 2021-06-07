@@ -7,14 +7,14 @@
     </head>
     <body>
         <h1 th:text="${post}"></h1>
-            <div>
+            <h2>
                 <label for="autor">Autor: </label>
                 <span th:text="${post.autor}"></span>
-            </div>
-            <div>
+            </h2>
+            <h2>
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${post.cuerpo}"></span>
-            </div>
+            </h2>
         <br><a th:href="@{/foro/verif/save/{id}(id=${post.id}, type=${tipo})}">Verificar Publicación</a>
         <br><a th:href="@{/foro/delete/{id}(id=${post.id}, type=${tipo})}">Eliminar Publicación</a>
         <br><a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>

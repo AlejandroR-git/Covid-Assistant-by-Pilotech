@@ -8,14 +8,14 @@
     <body>
         <img alt="Logo Pilotech" src="https://i.gyazo.com/ce3bbbc6ad894f9562395c566e20ab6b.png">
         <h1 th:text="${post}"></h1>
-            <div>
+            <h2>
                 <label for="autor">Autor: </label>
                 <span th:text="${post.autor}"></span>
-            </div>
-            <div>
+            </h2>
+            <h2>
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${post.cuerpo}"></span>
-            </div>
-        <a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>
+            </h2>
+        <br><a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>
     </body>
 </html>
