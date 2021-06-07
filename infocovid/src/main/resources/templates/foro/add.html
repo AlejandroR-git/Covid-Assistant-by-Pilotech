@@ -20,7 +20,7 @@
                 </h2>
             </h1>
         </div>
-        <form th:action="@{/foro/save(type=${tipo})}" method="post" th:object="${post}">
+        <form autocomplete="off" th:action="@{/foro/save(type=${tipo})}" method="post" th:object="${post}">
             <input type="hidden" id="id" th:field="*{id}">
             <div>
                 <label for="autor">Autor</label>

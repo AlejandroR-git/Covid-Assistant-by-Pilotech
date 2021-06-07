@@ -21,7 +21,7 @@
             </h1>
         </div>
         
-        <form th:action="@{/noticias/save}" method="post" th:object="${noticia}">
+        <form autocomplete="off" th:action="@{/noticias/save}" method="post" th:object="${noticia}">
             <input type="hidden" id="id" th:field="*{id}">
             <div>
                 <label for="titular">Titular</label>
