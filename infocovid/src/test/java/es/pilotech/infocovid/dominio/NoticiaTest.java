@@ -29,11 +29,6 @@ class NoticiaTest {
 	void tearDown() throws Exception {
 		
 	}
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
 	
 	@BeforeEach
 	public void init() {
@@ -46,10 +41,51 @@ class NoticiaTest {
 	}
 	
 	@Test
-	void establecerID() {
+	void trasEstablecerUnIdEseIdQuedaAlmacenadoEnLaNoticia() {
 		int id = 1;
 		noticia.setId(id);
 		assertEquals(id,noticia.getId());
+	}
+	
+	@Test
+	void trasEstablecerUnTituloEseTituloQuedaAlmacenadoEnLaNoticia() {
+		String titulo = "Titulo de la noticia";
+		noticia.setTitular(titulo);
+		assertEquals(titulo,noticia.getTitular());
+	}
+	
+	@Test
+	void trasEstablecerUnCuerpoEseCuerpoQuedaAlmacenadoEnLaNoticia() {
+		String cuerpo = "Este es el cuerpo de la noticia";
+		noticia.setCuerpo(cuerpo);
+		assertEquals(cuerpo,noticia.getCuerpo());
+	}
+	
+	@Test
+	void trasEstablecerLaFuenteEsaFuenteQuedaAlmacenadaEnLaNoticia() {
+		String fuente = "fuente de la noticia";
+		noticia.setFuente(fuente);
+		assertEquals(fuente,noticia.getFuente());
+	}
+	
+	@Test
+	void trasEstablecerElLinkEseLinkQuedaAlmacenadoEnLaNoticia() {
+		String link = "www.linkdelanoticia.es";
+		noticia.setLink(link);
+		assertEquals(link,noticia.getLink());
+	}
+	
+	@Test
+	void trasEstablecerQueUnaNoticiaEsUnBuloSeQuedaAlmacenadaComoBulo() {
+		boolean bulo = true;
+		noticia.setBulo(bulo);
+		assertEquals(bulo,noticia.isBulo());
+	}
+	
+	void trasEstablecerUnTitularToStringDevuelveElTitularDeLaNoticia() {
+		String titular = "Titular de la noticia";
+		noticia.setTitular(titular);
+		assertEquals(titular,noticia.toString());
 	}
 
 }
