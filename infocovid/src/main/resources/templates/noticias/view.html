@@ -3,17 +3,23 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Noticias</title>
+        <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
+        <style typo="text/css">
+            .bulo { color:brown;}
+            .noticia { color:#326d52}
+        </style>
     </head>
-    <body>
+    <body class="bulo" th:classappend="${noticia.bulo} ? bulo : noticia">
+    <img alt="Logo Pilotech" src="https://i.gyazo.com/ce3bbbc6ad894f9562395c566e20ab6b.png">
         <h1 th:text="${noticia}"></h1>
-            <div>
+            <h2>
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${noticia.cuerpo}"></span>
-            </div>
-            <div>
+            </h2>
+            <h2>
                 <label for="fuente">Fuente: </label>
-                <a th:href="${noticia.link}"><span th:text="${noticia.fuente}"></span></a>
-            </div>
-        <a th:href="@{/noticias}">Volver a Noticias</a>
+                <a th:target="_blank" th:href="${noticia.link}"><span th:text="${noticia.fuente}"></span></a>
+            </h2>
+        <br><a th:href="@{/noticias(type=${tipo})}">Volver a Noticias</a>
     </body>
 </html>

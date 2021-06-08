@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Noticias</title>
+        <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
     </head>
     <body>
         <div th:switch="${noticia.id}">
@@ -20,7 +21,7 @@
             </h1>
         </div>
         
-        <form th:action="@{/noticias/save}" method="post" th:object="${noticia}">
+        <form autocomplete="off" th:action="@{/noticias/save}" method="post" th:object="${noticia}">
             <input type="hidden" id="id" th:field="*{id}">
             <div>
                 <label for="titular">Titular</label>
@@ -37,6 +38,10 @@
             <div>
                 <label for="link">Link de Fuente</label>
                 <input type="text" id="link" size="50" th:field="*{link}">
+            </div>
+            <div>
+                <label for="bulo">Tipo de Noticia</label>
+                <input type="checkbox" name="tipo" th:field="*{bulo}" th:value="${noticia.bulo}">Bulo
             </div>
             <div>
                 <input type="submit" value="Enviar">

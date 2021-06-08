@@ -3,19 +3,24 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid</title>
+        <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
     </head>
     <body>
-        <h1>
-            Info Covid by Pilotech
-        </h1>
+        <img alt="Logo Pilotech" src="https://i.gyazo.com/00ff6623e5375919bf9e900674deb1ad.png">
         <h2>
-            Tu fuente de información legítima sobre el Covid-19
+            Entrar como:
         </h2>
         <h3>
-            <a th:href="@{/noticias}">Ver las Noticias</a>
+            <a th:href="@{inicio?type=0}">Invitado</a>
         </h3>
         <h3>
-            <a th:href="@{/foro}">Ver el Foro</a>
+            <a th:href="@{inicio?type=1}">Usuario</a>
+        </h3>
+        <h3>
+            <a th:href="@{inicio?type=2}">Moderador</a>
+        </h3>
+        <h3>
+            <a th:href="@{inicio?type=3}">Administrador</a>
         </h3>
     </body>
 </html>

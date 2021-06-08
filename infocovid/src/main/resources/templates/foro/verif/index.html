@@ -3,6 +3,7 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Foro</title>
+        <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
     </head>
     <body>
         <h1>
@@ -25,7 +26,7 @@
                         <td th:text="${p.titulo}"></td>
                         <td th:text="${p.cuerpo}"></td>
                     <td>
-                        <a th:href="@{/foro/verif/view/{id}(id=${p.id})}">Abrir</a>
+                        <a th:href="@{/foro/verif/view/{id}(id=${p.id},type=${tipo})}">Abrir</a>
                     </td>
                     </t>
                     </div>
@@ -36,6 +37,6 @@
             No hay publicaciones para verificar ;)
         </h3>
     </div>
-        <br><a th:href="@{/foro}">Volver atrás</a>
+        <br><a th:href="@{/foro(type=${tipo})}">Volver atrás</a>
     </body>
 </html>

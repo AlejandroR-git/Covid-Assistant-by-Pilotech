@@ -3,19 +3,20 @@
     <head>
         <meta charset="ISO-8859-1">
         <title>Info Covid - Foro</title>
+        <link rel="shortcut icon" href="https://i.gyazo.com/343d0e9fca4c217af88264509dafbb1a.png" type="image/png">
     </head>
     <body>
         <h1 th:text="${post}"></h1>
-            <div>
+            <h2>
                 <label for="autor">Autor: </label>
                 <span th:text="${post.autor}"></span>
-            </div>
-            <div>
+            </h2>
+            <h2>
                 <label for="cuerpo">Cuerpo: </label>
                 <span th:text="${post.cuerpo}"></span>
-            </div>
-        <br><a th:href="@{/foro/verif/save/{id}(id=${post.id})}">Verificar Publicación</a>
-        <br><a th:href="@{/foro/delete/{id}(id=${post.id})}">Eliminar Publicación</a>
-        <br><a th:href="@{/foro}">Volver al Foro</a>
+            </h2>
+        <br><a th:href="@{/foro/verif/save/{id}(id=${post.id}, type=${tipo})}">Verificar Publicación</a>
+        <br><a th:href="@{/foro/delete/{id}(id=${post.id}, type=${tipo})}">Eliminar Publicación</a>
+        <br><a th:href="@{/foro(type=${tipo})}">Volver al Foro</a>
     </body>
 </html>

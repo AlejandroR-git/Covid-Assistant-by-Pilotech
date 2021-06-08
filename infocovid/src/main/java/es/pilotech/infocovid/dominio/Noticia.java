@@ -15,7 +15,6 @@ public class Noticia{
 	private String cuerpo;
 	private String fuente;
 	private String link;
-
 	private boolean bulo;
 	
 	@ManyToOne
