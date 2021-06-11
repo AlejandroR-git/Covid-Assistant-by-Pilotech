@@ -112,7 +112,4 @@ class NoticiaServiceTest {
 
 		assertEquals(noticia.getId(), noticiaService.getByID(idnoticia).getId());
 	}
-
-	
-
 }

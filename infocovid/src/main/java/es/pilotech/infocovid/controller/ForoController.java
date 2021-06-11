@@ -101,7 +101,7 @@ public class ForoController {
         switch(type){
             case 2: return "redirect:/foro?type=2";
             case 3: return "redirect:/foro?type=3";
-            default: return "redirect:/foro?type=1";
+            default: return "redirect:/foro?type=2";
         }
     }
 
