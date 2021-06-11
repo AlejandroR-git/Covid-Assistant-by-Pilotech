@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +21,7 @@ import es.pilotech.infocovid.ConfiguradorInfocovid;
 import es.pilotech.infocovid.dominio.Publicacion;
 import es.pilotech.infocovid.service.ForoService;
 
+@Transactional
 @SpringBootTest
 @ContextConfiguration(classes = { ConfiguradorInfocovid.class })
 class ForoControllerTest {
@@ -28,7 +31,6 @@ class ForoControllerTest {
 
 	@Autowired
 	ForoController foroController;
-
 
 	@Autowired
 	ForoService foroService;
@@ -43,6 +45,7 @@ class ForoControllerTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		foroService.deleteAll();
 	}
 
 	@AfterEach
@@ -68,6 +71,17 @@ class ForoControllerTest {
 	}
 
 	@Test
+	void CuandoLlamoAlPanelDeGuardarPublicacionDevuelveLaPestañaPorDefecto(){
+
+		Publicacion p = new Publicacion();
+		
+		String direccion = foroController.savePost(p, 0);
+
+		assertEquals("redirect:/foro?type=1", direccion);
+		
+	}
+
+	@Test
 	void CuandoLlamoAlPanelDeGuardarPublicacionDevuelveLaPestañaTipo1(){
 
 		Publicacion p = new Publicacion();
@@ -77,6 +91,7 @@ class ForoControllerTest {
 		assertEquals("redirect:/foro?type=1", direccion);
 		
 	}
+
 	@Test
 	void CuandoLlamoAlPanelDeGuardarPublicacionDevuelveLaPestañaTipo2(){
 
@@ -99,7 +114,6 @@ class ForoControllerTest {
 		
 	}
 
-
 	@Test
 	void CuandoLlamoAlPanelDeEditarUnaPublicacionDevuelveLaPestaña(){
 
@@ -115,6 +129,90 @@ class ForoControllerTest {
 		String direccion = foroController.viewPost(0, 0, model);
 
 		assertEquals("foro/view", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeModeracionDelForoDevuelveLaPestaña(){
+
+		String direccion = foroController.viewVerifPanel(model, 0);
+
+		assertEquals("foro/verif/index", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeVerUnaPublicacionPorVerificarDevuelveLaPestaña(){
+
+		String direccion = foroController.viewVerifPost(0, 0, model);
+
+		assertEquals("foro/verif/view", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeVerificarUnaPublicacionDevuelveLaPestañaPorDefecto(){
+
+		Publicacion p = new Publicacion();
+		p.setVerificado(false); 
+		foroService.deleteAll();
+		foroService.save(p);
+
+		List<Publicacion> ListaPublicacion = foroService.getAll();
+		int idpublicacion = ListaPublicacion.get(0).getId();
+
+		String direccion = foroController.saveVerifPost(idpublicacion, 0);
+
+		assertEquals("redirect:/foro?type=2", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeVerificarUnaPublicacionDevuelveLaPestañaTipo2(){
+
+		Publicacion p = new Publicacion();
+		p.setVerificado(false); 
+		foroService.deleteAll();
+		foroService.save(p);
+
+		List<Publicacion> ListaPublicacion = foroService.getAll();
+		int idpublicacion = ListaPublicacion.get(0).getId();
+
+		String direccion = foroController.saveVerifPost(idpublicacion, 2);
+
+		assertEquals("redirect:/foro?type=2", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeVerificarUnaPublicacionDevuelveLaPestañaTipo3(){
+
+		Publicacion p = new Publicacion();
+		p.setVerificado(false); 
+		foroService.deleteAll();
+		foroService.save(p);
+
+		List<Publicacion> ListaPublicacion = foroService.getAll();
+		int idpublicacion = ListaPublicacion.get(0).getId();
+
+		String direccion = foroController.saveVerifPost(idpublicacion, 3);
+
+		assertEquals("redirect:/foro?type=3", direccion);
+
+	}
+
+	@Test
+	void CuandoLlamoAlPanelDeBorrarUnaPublicacionDevuelveLaPestañaPorDefecto(){
+
+		foroService.deleteAll();
+		foroService.save(new Publicacion());
+
+		List<Publicacion> ListaPublicacion = foroService.getAll();
+		int idpublicacion = ListaPublicacion.get(0).getId();
+
+		String direccion = foroController.deletePost(idpublicacion, 0);
+
+		assertEquals("redirect:/foro?type=1", direccion);
 
 	}
 
@@ -162,7 +260,4 @@ class ForoControllerTest {
 		assertEquals("redirect:/foro?type=3", direccion);
 
 	}
-
-
-
 }
