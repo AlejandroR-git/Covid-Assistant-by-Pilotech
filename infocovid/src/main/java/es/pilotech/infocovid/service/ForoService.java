@@ -25,6 +25,10 @@ public class ForoService {
         foroRepository.deleteById(id);
     }
 
+    public void deleteAll(){
+        foroRepository.deleteAll();
+    }
+
     public Publicacion getByID(Integer id){
         return foroRepository.getOne(id);
     }

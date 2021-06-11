@@ -25,6 +25,10 @@ public class NoticiaService {
         noticiaRepository.deleteById(id);
     }
 
+    public void deleteAll(){
+        noticiaRepository.deleteAll();
+    }
+
     public Noticia getByID(Integer id){
         return noticiaRepository.getOne(id);
     }
