@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-import es.pilotech.infocovid.dominio.Noticia;
+
+import es.pilotech.infocovid.ConfiguradorInfocovid;
 import es.pilotech.infocovid.dominio.Publicacion;
 
 @SpringBootTest
