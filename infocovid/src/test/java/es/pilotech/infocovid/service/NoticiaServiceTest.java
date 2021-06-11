@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
+
+import es.pilotech.infocovid.ConfiguradorInfocovid;
 import es.pilotech.infocovid.dominio.Noticia;
 
 @SpringBootTest
@@ -103,8 +105,8 @@ class NoticiaServiceTest {
 	void CuandoBuscoUnaNoticiaPorIDLaEncuentraCorrectamente() {
 
 		Noticia noticia = new Noticia();
-		noticia.setTitular("titular");
 		noticiaService.save(noticia);
+		
 		List<Noticia> ListaNoticias = noticiaService.getAll();
 		int idnoticia = ListaNoticias.get(0).getId();
 

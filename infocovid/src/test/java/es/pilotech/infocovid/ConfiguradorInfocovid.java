@@ -1,4 +1,4 @@
-package es.pilotech.infocovid.service;
+package es.pilotech.infocovid;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
