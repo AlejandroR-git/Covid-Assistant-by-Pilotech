@@ -8,6 +8,7 @@ class InfocovidApplicationTests {
 
 	@Test
 	void contextLoads() {
+		InfocovidApplication.main(new String[] {});
 	}
 
 }
